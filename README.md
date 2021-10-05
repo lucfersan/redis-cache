@@ -7,7 +7,7 @@
   <h3 align="center">Redis Cache</h3>
 
   <p align="center">
-    This is an API that caches authenticated user information using Redis.
+    This is an API that caches the authenticated user's information using Redis.
     <br />
     <a href="https://github.com/lucfersan/redis-cache"><strong>Explore the docs »</strong></a>
     <br />
