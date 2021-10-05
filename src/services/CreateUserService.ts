@@ -15,7 +15,7 @@ export class CreateUserService {
     })
 
     if (exists) {
-      throw new HttpException('User already exists', 409)
+      throw new HttpException('User already exists.', 409)
     }
 
     const user = await prisma.user.create({ data: params })

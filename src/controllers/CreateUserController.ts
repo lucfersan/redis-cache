@@ -6,6 +6,10 @@ export class CreateUserController {
   async handle(req: Request, res: Response): Promise<Response> {
     const { username, firstName, lastName } = req.body
 
+    if (!username || !firstName || !lastName) {
+      return res.status(400).json({ error: 'Please fill all fields.' })
+    }
+
     const createUserService = new CreateUserService()
 
     const user = await createUserService.execute({
@@ -15,5 +19,14 @@ export class CreateUserController {
     })
 
     return res.status(201).json(user)
+  }
+
+  private validateRequest(req: any): string | undefined {
+    return 'oi'
+    // for (const field of ['username', 'firstName', 'lastName']) {
+    //   if (!req[field]) {
+    //     return field
+    //   }
+    // }
   }
 }
