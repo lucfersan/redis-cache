@@ -1,7 +1,6 @@
-import { User } from '.prisma/client'
-
 import { HttpException } from '@/errors'
 import { prisma } from '@/prisma'
+import { User } from '@prisma/client'
 
 type Params = {
   username: string
