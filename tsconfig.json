@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "incremental": true,
+    "outDir": "dist",
+    "rootDirs": ["src", "tests"],
+    "target": "es2021",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+      "@/tests/*": ["../tests/*"]
+    },
+    "strict": false,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmit": true
+  },
+  "include": ["src", "tests"]
+}

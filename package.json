@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Lucas Fernandes <fernandes.lucas11@outlook.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^16.10.2",
+    "typescript": "^4.4.3"
+  }
 }
