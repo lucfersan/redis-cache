@@ -5,6 +5,7 @@ import {
   GetUserInfoController,
   AuthenticateUserController
 } from '@/controllers'
+import { ensureAuthenticated } from '@/middlewares'
 
 const usersRouter = Router()
 
@@ -14,6 +15,6 @@ const getUserInfoController = new GetUserInfoController()
 
 usersRouter.post('/', createUserController.handle)
 usersRouter.post('/login', authenticateUserController.handle)
-usersRouter.get('/', getUserInfoController.handle)
+usersRouter.get('/', ensureAuthenticated, getUserInfoController.handle)
 
 export { usersRouter }

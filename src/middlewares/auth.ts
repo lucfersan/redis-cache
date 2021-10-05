@@ -2,16 +2,16 @@ import { NextFunction, Request, Response } from 'express'
 import { verify } from 'jsonwebtoken'
 
 type TokenPayload = {
-  id: string
+  sub: string
   iat: number
   exp: number
 }
 
-export const ensureAuthenticated = async (
+export const ensureAuthenticated = (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<Response | void> => {
+): Response | void => {
   const authHeader = req.headers.authorization
 
   if (!authHeader) {
@@ -22,7 +22,7 @@ export const ensureAuthenticated = async (
 
   try {
     const decoded = verify(token, process.env.JWT_SECRET)
-    const { id } = decoded as TokenPayload
+    const { sub: id } = decoded as TokenPayload
     req.userId = id
 
     return next()

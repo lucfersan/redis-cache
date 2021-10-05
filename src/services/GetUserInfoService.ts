@@ -3,13 +3,13 @@ import { prisma } from '@/prisma'
 import { User } from '@prisma/client'
 
 type Params = {
-  username: string
+  id: string
 }
 
 export class GetUserInfoService {
-  async execute({ username }: Params): Promise<User> {
+  async execute({ id }: Params): Promise<User> {
     const user = await prisma.user.findUnique({
-      where: { username }
+      where: { id }
     })
 
     if (!user) {
