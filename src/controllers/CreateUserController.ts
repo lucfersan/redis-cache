@@ -20,13 +20,4 @@ export class CreateUserController {
 
     return res.status(201).json(user)
   }
-
-  private validateRequest(req: any): string | undefined {
-    return 'oi'
-    // for (const field of ['username', 'firstName', 'lastName']) {
-    //   if (!req[field]) {
-    //     return field
-    //   }
-    // }
-  }
 }
