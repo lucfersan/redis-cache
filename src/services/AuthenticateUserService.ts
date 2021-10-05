@@ -3,6 +3,7 @@ import { sign } from 'jsonwebtoken'
 
 import { HttpException } from '@/errors'
 import { prisma } from '@/prisma'
+import { User } from '@prisma/client'
 
 type Params = {
   username: string
@@ -10,7 +11,10 @@ type Params = {
 }
 
 export class AuthenticateUserService {
-  async execute({ username, password }: Params): Promise<{ token: string }> {
+  async execute({
+    username,
+    password
+  }: Params): Promise<{ token: string; user: User }> {
     const user = await prisma.user.findUnique({
       where: { username }
     })
@@ -30,6 +34,6 @@ export class AuthenticateUserService {
       subject: user.id
     })
 
-    return { token }
+    return { token, user }
   }
 }

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 
+import { setRedis } from '@/redis'
 import { AuthenticateUserService } from '@/services'
 
 export class AuthenticateUserController {
@@ -12,11 +13,16 @@ export class AuthenticateUserController {
 
     const authenticateUserService = new AuthenticateUserService()
 
-    const token = await authenticateUserService.execute({
+    const { token, user } = await authenticateUserService.execute({
       username,
       password
     })
 
-    return res.status(201).json(token)
+    await setRedis(`userId-${user.id}`, JSON.stringify(user))
+
+    return res.status(201).json({
+      token,
+      user
+    })
   }
 }
