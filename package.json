@@ -1,13 +1,22 @@
 {
   "name": "redis-cache",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Lucas Fernandes <fernandes.lucas11@outlook.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "rimraf dist && babel src --extensions \".ts\" --out-dir dist --copy-files --no-copy-ignored"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-typescript": "^7.15.0",
     "@types/node": "^16.10.2",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
@@ -17,6 +26,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "prettier": "^2.4.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.4.3"
   }
 }
